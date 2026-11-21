@@ -49,7 +49,7 @@ gomoku/
 
 ```
 ┌───────────────────────────────────────────────────────────┐
-│  Gomoku                                        ♪  🖼       │
+│  Gomoku                                       ♪  🖼       │
 ├──────────┬───────────────────────────┬────────────────────┤
 │ Computer │                           │ You play           │
 │  avatar  │   Frosted-glass board     │  Black/White/Random│
