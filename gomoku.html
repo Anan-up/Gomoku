@@ -555,6 +555,7 @@
 
 <audio id="bgm" src="assets/bgm.mp3" loop preload="auto"></audio>
 <audio id="sfx" src="assets/audio/end-laugh.mp3" preload="auto"></audio>
+<audio id="undoSfx" src="assets/audio/undo.mp3" preload="auto"></audio>
 
 <!-- ===================== AI 引擎（Web Worker） ===================== -->
 <script id="engine-src" type="text/js-worker">
@@ -1928,6 +1929,7 @@
     stopEndSfx();
     thinkText('已悔棋 · 重新推演', '', '');
     hideOverlay();
+    playUndoSfx();
 
     popOne();
     if (state.turn === state.aiColor && state.history.length) popOne();
@@ -2286,6 +2288,7 @@
 
   // ---------- 终局音效：笑声 ----------
   var sfx = document.getElementById('sfx');
+  var undoSfx = document.getElementById('undoSfx');
   var sfxDelay = null, sfxDuckTimer = null, sfxDucked = false;
 
   function restoreBgmVolume() {
@@ -2300,6 +2303,16 @@
     if (sfxDelay) { clearTimeout(sfxDelay); sfxDelay = null; }
     if (sfx) { try { sfx.pause(); sfx.currentTime = 0; } catch (e) {} }
     restoreBgmVolume();
+  }
+
+  // 悔棋音效：每次都从头播，连点也能听到；很短，不压背景音乐
+  function playUndoSfx() {
+    if (!undoSfx) return;
+    try { undoSfx.currentTime = 0; } catch (e) {}
+    undoSfx.volume = 0.9;
+    var p;
+    try { p = undoSfx.play(); } catch (e) { return; }
+    if (p && p.catch) p.catch(function () {});
   }
 
   function playEndSfx() {
