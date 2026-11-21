@@ -1,3 +1,5 @@
+[English](README.md) | [简体中文](README_Simplified_Chinese.md) | [繁體中文](README_Classical_Chinese.md)
+
 # 五子棋 · Gomoku
 
 一个纯本地的网页五子棋。双击 `gomoku.html` 就能玩，不联网、不需安装、无第三方依赖。
@@ -282,7 +284,6 @@ VCF（连续冲四）在主搜索之前跑：最多 18 层、限时 420ms。只�
 - 资源：背景图 17 张（jpg/png/webp 混合）、背景视频约 7MB、音乐约 7MB、终局音效 80KB，整个包约 18MB。
 
 ---
+## 许可证
 
-## 许可
-
-背景音乐《屋顶上的苦行山》与背景图版权归原作者所有，仅供个人娱乐使用。
+[MIT](LICENSE)
